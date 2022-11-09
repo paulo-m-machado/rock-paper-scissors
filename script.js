@@ -35,3 +35,11 @@ function oneRound() {
         computer === 'rock' ? console.log('you lose') : console.log('you win');
     }
 }
+
+function game() {
+    for (let i = 0; i < 5; i++) {
+        oneRound();
+    }
+}
+
+game();
