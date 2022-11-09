@@ -14,9 +14,10 @@ function playerChoice(choice) {
     return choice;
 }
 
-function oneRound() {
-    let player = playerChoice();
+function oneRound(player) {
     let computer = getComputerChoice();
+    
+    console.log(player);
 
     if (player === computer) {
         console.log('DRAW');
@@ -36,6 +37,6 @@ const rock = document.querySelector('#btn-rock');
 const paper = document.querySelector('#btn-paper');
 const scissors = document.querySelector('#btn-scissors');
 
-rock.addEventListener('click', () => {playerChoice(0)} );
-paper.addEventListener('click', () => {playerChoice(1)} );
-scissors.addEventListener('click', () => {playerChoice(2)} );
+rock.addEventListener('click', () => {oneRound(playerChoice(0))} );
+paper.addEventListener('click', () => {oneRound(playerChoice(1))} );
+scissors.addEventListener('click', () => {oneRound(playerChoice(2))} );
