@@ -1,3 +1,8 @@
+let pScore = 0;
+let cScore = 0;
+
+let results = document.querySelector('#results');
+
 function getComputerChoice() {
     let choice = Math.floor(Math.random() * 3);
 
@@ -16,20 +21,24 @@ function playerChoice(choice) {
 
 function oneRound(player) {
     let computer = getComputerChoice();
-    
-    console.log(player);
+    let li = document.createElement('li');
+
+    function result(re) {
+        li.textContent = re;
+        results.appendChild(li);
+    }
 
     if (player === computer) {
-        console.log('DRAW');
+        result('draw');
     }
     else if (player === 'rock') {
-        computer === 'paper' ? console.log('you lose') : console.log('you win');
+        computer === 'paper' ? result('you lose') : result('you win');
     }
     else if (player === 'paper') {
-        computer === 'scissors' ? console.log('you lose') : console.log('you win');
+        computer === 'scissors' ? result('you lose') : result('you win');
     }
     else {
-        computer === 'rock' ? console.log('you lose') : console.log('you win');
+        computer === 'rock' ? result('you lose') : result('you win');
     }
 }
 
