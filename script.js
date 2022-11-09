@@ -7,13 +7,9 @@ function getComputerChoice() {
     return choice;
 }
 
-function playerChoice() {
-    let choice = prompt('type rock, paper or scissors', 'rock');
-    choice = choice.toLowerCase();
-
-    while (choice != 'rock' && choice != 'paper' && choice != 'scissors') {
-        choice = prompt('type a valid option: rock, paper or scissors', 'rock');
-    }
+function playerChoice(choice) {
+    let possibleChoice = ['rock', 'paper', 'scissors'];
+    choice = possibleChoice[choice];
 
     return choice;
 }
@@ -36,3 +32,10 @@ function oneRound() {
     }
 }
 
+const rock = document.querySelector('#btn-rock');
+const paper = document.querySelector('#btn-paper');
+const scissors = document.querySelector('#btn-scissors');
+
+rock.addEventListener('click', () => {playerChoice(0)} );
+paper.addEventListener('click', () => {playerChoice(1)} );
+scissors.addEventListener('click', () => {playerChoice(2)} );
