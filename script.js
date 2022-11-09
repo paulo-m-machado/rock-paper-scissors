@@ -17,3 +17,21 @@ function playerChoice() {
 
     return choice;
 }
+
+function oneRound() {
+    let player = playerChoice();
+    let computer = getComputerChoice();
+
+    if (player === computer) {
+        console.log('DRAW');
+    }
+    else if (player === 'rock') {
+        computer === 'paper' ? console.log('you lose') : console.log('you win');
+    }
+    else if (player === 'paper') {
+        computer === 'scissors' ? console.log('you lose') : console.log('you win');
+    }
+    else {
+        computer === 'rock' ? console.log('you lose') : console.log('you win');
+    }
+}
