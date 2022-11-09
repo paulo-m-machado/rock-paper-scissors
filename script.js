@@ -2,6 +2,7 @@ let pScore = 0;
 let cScore = 0;
 
 let results = document.querySelector('#results');
+let div = document.querySelector('div');
 
 function getComputerChoice() {
     let choice = Math.floor(Math.random() * 3);
@@ -24,22 +25,41 @@ function oneRound(player) {
     let li = document.createElement('li');
 
     function result(re) {
-        li.textContent = re;
+        let possibleResults = ['draw', 'you win', 'you lose'];
+        li.textContent = possibleResults[re];
         results.appendChild(li);
+
+        re === 1 ? pScore++ : re === 2 ? cScore++ : null;
     }
 
     if (player === computer) {
-        result('draw');
+        result(0);
     }
     else if (player === 'rock') {
-        computer === 'paper' ? result('you lose') : result('you win');
+        computer === 'paper' ? result(2) : result(1);
     }
     else if (player === 'paper') {
-        computer === 'scissors' ? result('you lose') : result('you win');
+        computer === 'scissors' ? result(2) : result(1);
     }
     else {
-        computer === 'rock' ? result('you lose') : result('you win');
+        computer === 'rock' ? result(2) : result(1);
     }
+
+    let anoun = document.createElement('h1');
+
+    if (pScore > 4) {
+        anoun.textContent = 'You won the BO5';
+        div.appendChild(anoun);
+        pScore = 0;
+        cScore = 0;
+    }
+    else if (cScore > 4) {
+        anoun.textContent = 'You lost the BO5';
+        div.appendChild(anoun);
+        pScore = 0;
+        cScore = 0;
+    }
+    
 }
 
 const rock = document.querySelector('#btn-rock');
