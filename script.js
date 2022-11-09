@@ -7,4 +7,13 @@ function getComputerChoice() {
     return choice;
 }
 
-console.log(getComputerChoice());
+function playerChoice() {
+    let choice = prompt('type rock, paper or scissors', 'rock');
+    choice = choice.toLowerCase();
+
+    while (choice != 'rock' && choice != 'paper' && choice != 'scissors') {
+        choice = prompt('type a valid option: rock, paper or scissors', 'rock');
+    }
+
+    return choice;
+}
