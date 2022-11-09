@@ -36,10 +36,3 @@ function oneRound() {
     }
 }
 
-function game() {
-    for (let i = 0; i < 5; i++) {
-        oneRound();
-    }
-}
-
-game();
